@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ApiApp</string>
+    <!--文字列リソースファイルに文字列を追加する-->
+    <!--TabLayoutのタイトル -->
+    <string name="tab_title_api">新着順</string>
+    <string name="tab_title_favorite">お気に入り</string>
+</resources>
