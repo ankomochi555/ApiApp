@@ -1,7 +1,23 @@
 <resources>
+
+    <!--  ★どこにでも当てはめることができる?レイアウトのtextとどう違う? -->
+
     <string name="app_name">ApiApp</string>
     <!--文字列リソースファイルに文字列を追加する-->
     <!--TabLayoutのタイトル -->
     <string name="tab_title_api">新着順</string>
     <string name="tab_title_favorite">お気に入り</string>
+
+    <!--API通信関連-->
+    <!--base_urlはAPI通信をやる際のベースとなるUrlです。
+    api_keyには取得したAPIキーを入れてください。
+    api_keywordはグルメの検索のAPI通信を行う際の検索ワードです。ここではランチとなっていますが、グルメ系のワードだったらなんでもOKです。-->
+    <string name="base_url">https://webservice.recruit.co.jp/hotpepper/gourmet/v1/</string>
+    <string name="api_key">9167e9752f7c22e0</string>
+    <string name="api_keyword">ランチ</string>
+
+    <!-- Favorite関連 -->
+    <string name="delete_favorite_dialog_title">お気に入りの削除</string>
+    <string name="delete_favorite_dialog_massage">お気に入りを削除しますか</string>
+    <string name="empty_favorite">お気に入りはまだ登録されていません。</string>
 </resources>
