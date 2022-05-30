@@ -44,7 +44,7 @@ class FavoriteAdapter(private val context: Context): RecyclerView.Adapter<Recycl
     }
 
     // onCreateViewHolderの第二引数はここで決める。
-    // 条件によってViewTypeを返すようにすると、一つのRecyclerViewで様々なViewがある物が作れる ★様々なViewがあるものとは？
+    // 条件によってViewTypeを返すようにすると、一つのRecyclerViewで様々なViewがある物が作れる
     override fun getItemViewType(position: Int): Int {
         return if (items.isEmpty()) VIEW_TYPE_EMPTY else VIEW_TYPE_ITEM
     }
