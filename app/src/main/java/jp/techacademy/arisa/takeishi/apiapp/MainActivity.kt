@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity(), FragmentCallback {
             .setPositiveButton(android.R.string.ok) {_, _ ->
                 deleteFavorite(id)
             }
-            .setNegativeButton(android.R.string.cancel) { _, _ ->} //★_の意味とは?　今後使用しないの意味?
+            .setNegativeButton(android.R.string.cancel) { _, _ ->} //★_　は 今後使用しないの意味
             .create()
             .show()
     }
@@ -80,7 +80,7 @@ class MainActivity : AppCompatActivity(), FragmentCallback {
 
     companion object {
         private const val VIEW_PAGER_POSITION_API = 0
-        private const val VIEW_PAGER_POSITION_FAVORITE = 1
+        const val VIEW_PAGER_POSITION_FAVORITE = 1
     }
 
 

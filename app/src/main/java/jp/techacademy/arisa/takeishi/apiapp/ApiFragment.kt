@@ -32,7 +32,7 @@ class ApiFragment: Fragment() {
     // Apiでデータを読み込み中ですフラグ。
     // 追加ページの読み込みの時にこれがないと、連続して読み込んでしまうので、それの制御のため
     //trueの時はAPI通信を発生させないBoolean変数
-    private var isLoading = false
+    private var isLoading = false //Falseなので、Loadingしていないの意味
 
 
     override fun onAttach(context: Context) {
@@ -102,7 +102,7 @@ class ApiFragment: Fragment() {
     private fun updateData(isAdd: Boolean = false) { //このメソッド内でAPI通信を行い、データを取得　ApiFragmentクラスで一番大切なメソッド
         if (isLoading) { //isLoadingの対応とisAddでpageの書き換え、startの計算が入っている
             return
-        } else { //★ if文の中では何が起きている？　isLoading = trueの意味
+        } else { //★ if文の中では何が起きている？　isLoading = true　ローディングしているの意味
             isLoading = true
         }
         if (isAdd) {

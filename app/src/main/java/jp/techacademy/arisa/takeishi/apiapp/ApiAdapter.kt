@@ -93,7 +93,7 @@ class ApiAdapter(private val context: Context): RecyclerView.Adapter<RecyclerVie
 
     //override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int)メソッドでは、
     // 第１引数にonCreateViewHolderで作られたViewHolderが、
-    // 第２引数に何番目の表示かが渡されます。ここで、itemsからposition番のデータを取得して、
+    // 第２引数に何番目の表示かが渡される。ここで、itemsからposition番のデータを取得して、
     // ViewHolderの描画する
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is ApiItemViewHolder){

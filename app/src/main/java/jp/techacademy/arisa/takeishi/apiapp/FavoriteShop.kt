@@ -3,16 +3,15 @@ package jp.techacademy.arisa.takeishi.apiapp
 import io.realm.Realm
 import io.realm.RealmObject
 import io.realm.annotations.PrimaryKey
+import java.io.Serializable
 
-open class FavoriteShop: RealmObject() {
+open class FavoriteShop: RealmObject(), Serializable { //Serializableを継承しているものは自分が作ったクラスのputextraでデータを渡せる
     @PrimaryKey
     var id: String = "" //プライマリーキーはidのみにかかっている　id = データに割り振る番号　学籍番号みたいな感じ
     var imageUrl: String = ""
     var name: String = ""
     var address: String = "" //住所追加
     var url: String = ""
-
-//アプリが落ちてしまう
 
 
     companion object{

@@ -55,7 +55,7 @@ class FavoriteAdapter(private val context: Context): RecyclerView.Adapter<Recycl
     // お気に入り画面用のViewHolderオブジェクトの生成
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when(viewType) {
-            // ViewTypeがVIEW_TYPE_EMPTY（つまり、お気に入り登録が0件）の場合 ★false, parentの意味は?
+            // ViewTypeがVIEW_TYPE_EMPTY（つまり、お気に入り登録が0件）の場合 ★false, parentの意味は　parentは親で親のViewに紐づける　RootViewに紐づけないという意味のFalse
             VIEW_TYPE_EMPTY -> EmptyViewHolder(LayoutInflater.from(context).inflate(R.layout.recycler_favorite_empty, parent, false))
             // 上記以外（つまり、1件以上のお気に入りが登録されている場合
             else -> FavoriteItemViewHolder(LayoutInflater.from(context).inflate(R.layout.recycler_favorite, parent, false))
