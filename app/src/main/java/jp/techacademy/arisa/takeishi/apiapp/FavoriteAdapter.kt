@@ -20,7 +20,7 @@ class FavoriteAdapter(private val context: Context): RecyclerView.Adapter<Recycl
     var onClickDeleteFavorite: ((FavoriteShop) -> Unit)? = null
 
     // Itemを押したときのメソッド
-    var onClickItem: ((String) -> Unit)? = null
+    var onClickItem: ((FavoriteShop) -> Unit)? = null //〇6/2変更点
 
 
 
@@ -80,7 +80,7 @@ class FavoriteAdapter(private val context: Context): RecyclerView.Adapter<Recycl
                 // 偶数番目と機数番目で背景色を変更させる
                 setBackgroundColor(ContextCompat.getColor(context, if (position % 2 == 0) android.R.color.white else android.R.color.darker_gray))
                 setOnClickListener{
-                    onClickItem?.invoke(data.url)
+                    onClickItem?.invoke(data) //〇変更点6/2
                 }
             }
             nameTextView.text = data.name

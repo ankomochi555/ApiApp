@@ -13,7 +13,6 @@ open class FavoriteShop: RealmObject(), Serializable { //Serializableを継承�
     var address: String = "" //住所追加
     var url: String = ""
 
-
     companion object{
         fun findAll(): List<FavoriteShop> = // お気に入りのShopを全件取得
             Realm.getDefaultInstance().use { realm ->

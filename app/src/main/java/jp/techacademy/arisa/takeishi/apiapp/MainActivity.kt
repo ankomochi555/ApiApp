@@ -37,10 +37,13 @@ class MainActivity : AppCompatActivity(), FragmentCallback {
 
 
     //WebViewActivityに画面遷移させる
-    override fun onClickItem(url: String) {
-        WebViewActivity.start(this, url)
+    override fun onClickItem(FavoriteShop: String) {
+        WebViewActivity.start(this, FavoriteShop)
     }
 
+    override fun onClickItem(Shop: Shop) {
+        TODO("Not yet implemented")
+    }
 
     // Favoriteに追加するときのメソッド(Fragment -> Activity へ通知する)
     override fun onAddFavorite(shop: Shop) {

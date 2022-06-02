@@ -21,14 +21,14 @@ class ApiAdapter(private val context: Context): RecyclerView.Adapter<RecyclerVie
     // 取得したJsonデータを解析し、Shop型オブジェクトとして生成したものを格納するリスト. 対象リストを保存するためのプロパティ
     private val items = mutableListOf<Shop>()
 
-    // 一覧画面から登録するときのコールバック（FavoriteFragmentへ通知するメソッド) ★Unitの役目とは？　ラムダ式で書かれたコールバック？
+    // 一覧画面から登録するときのコールバック（FavoriteFragmentへ通知するメソッド) ★Unitの役目
     var onClickAddFavorite: ((Shop) -> Unit)? = null //Unit は戻り値のない関数
 
     // 一覧画面から削除するときのコールバック（ApiFragmentへ通知するメソッド)
     var onClickDeleteFavorite: ((Shop) -> Unit)? = null
 
     // Itemを押したときのメソッド
-    var onClickItem: ((String) -> Unit)? = null
+    var onClickItem: ((FavoriteShop) -> Unit)? = null //〇6/2変更点
 
 
     // fun refresh(list: List<Shop>)は、このあと実装するApiFragmentから表示リスト更新時に呼び出すメソッド
@@ -117,6 +117,7 @@ class ApiAdapter(private val context: Context): RecyclerView.Adapter<RecyclerVie
                     if(position % 2 == 0) android.R.color.white else android.R.color.darker_gray))
                 setOnClickListener{
                     onClickItem?.invoke(if (data.couponUrls.sp.isNotEmpty()) data.couponUrls.sp else data.couponUrls.pc)
+                    //〇どう記述すべき↑
                 }
             }
             // nameTextViewのtextプロパティに代入されたオブジェクトのnameプロパティを代入

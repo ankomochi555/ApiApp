@@ -51,6 +51,16 @@ class WebViewActivity : AppCompatActivity(), FragmentCallback{
 
     }
 
+    //〇6/2変更点
+    override fun onClickItem(FavoriteShop: String) {
+        TODO("Not yet implemented")
+    }
+
+    //〇6/2変更点
+    override fun onClickItem(Shop: Shop) {
+        TODO("Not yet implemented")
+    }
+
     // Favoriteに追加するときのメソッド(Fragment -> Activity へ通知する)
     override fun onAddFavorite(shop: Shop) {
         FavoriteShop.insert(FavoriteShop().apply {
@@ -92,6 +102,7 @@ class WebViewActivity : AppCompatActivity(), FragmentCallback{
             //startActivity()メソッドを呼び出し, その際の引数にURL情報を付加したIntentオブジェクトを入れ、渡す。　Urlを渡しているだけ
             activity.startActivity(Intent(activity, WebViewActivity::class.java).putExtra(KEY_URL, url))
 
+            //activity.startActivity(Intent(activity,WebViewActivity::class.java).putExtra())
             //putextraでShopを渡す
         }
         private const val VIEW_PAGER_POSITION_API = 0
