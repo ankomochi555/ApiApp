@@ -28,7 +28,7 @@ class ApiAdapter(private val context: Context): RecyclerView.Adapter<RecyclerVie
     var onClickDeleteFavorite: ((Shop) -> Unit)? = null
 
     // Itemを押したときのメソッド
-    var onClickItem: ((FavoriteShop) -> Unit)? = null //〇6/2変更点
+    var onClickItem: ((Shop) -> Unit)? = null //〇6/2変更点
 
 
     // fun refresh(list: List<Shop>)は、このあと実装するApiFragmentから表示リスト更新時に呼び出すメソッド
@@ -116,8 +116,8 @@ class ApiAdapter(private val context: Context): RecyclerView.Adapter<RecyclerVie
                 setBackgroundColor(ContextCompat.getColor(context,
                     if(position % 2 == 0) android.R.color.white else android.R.color.darker_gray))
                 setOnClickListener{
-                    onClickItem?.invoke(if (data.couponUrls.sp.isNotEmpty()) data.couponUrls.sp else data.couponUrls.pc)
-                    //〇どう記述すべき↑
+                    onClickItem?.invoke(data)
+                    //↑Coupon.url（string文字列）ではなくてデータを渡す
                 }
             }
             // nameTextViewのtextプロパティに代入されたオブジェクトのnameプロパティを代入

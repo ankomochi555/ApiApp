@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.fragment_api.*
 
 class FavoriteFragment: Fragment() {
 
-    private val favoriteAdapter by lazy { FavoriteAdapter(requireContext()) }
+    private val favoriteAdapter by lazy { FavoriteAdapter(requireContext()) } //4.4Fragment non-null型について
 
     // FavoriteFragment -> MainActivity に削除を通知する
     private var fragmentCallback : FragmentCallback? = null

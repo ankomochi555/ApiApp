@@ -37,12 +37,19 @@ class MainActivity : AppCompatActivity(), FragmentCallback {
 
 
     //WebViewActivityに画面遷移させる
-    override fun onClickItem(FavoriteShop: String) {
-        WebViewActivity.start(this, FavoriteShop)
+    override fun onClickItem(favoriteShop: FavoriteShop) {
+        WebViewActivity.start(this, favoriteShop)
     }
 
-    override fun onClickItem(Shop: Shop) {
-        TODO("Not yet implemented")
+    override fun onClickItem(shop: Shop) {
+        //上のonclickを呼ぶ　上の関数に戻る　お気に入り以外のshopも画面遷移するようにデータを渡す
+        onClickItem(FavoriteShop().apply { //.apply　FavoriteShop()インスタンスを作成して、そのインスタンスに値を入れていく　値が入ったインスタンスを返す 戻り値がある
+            id = shop.id
+            name = shop.name
+            imageUrl = shop.logoImage
+            address = shop.address
+            url = if (shop.couponUrls.sp.isNotEmpty()) shop.couponUrls.sp else shop.couponUrls.pc
+        })
     }
 
     // Favoriteに追加するときのメソッド(Fragment -> Activity へ通知する)

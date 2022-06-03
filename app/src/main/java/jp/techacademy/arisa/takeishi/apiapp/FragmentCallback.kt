@@ -4,13 +4,13 @@ interface FragmentCallback {
     // Itemを押したときの処理
     //fun onClickItem(url: String)
 
-    // onClickItem(url: String)を削除した理由　FavoriteShopのほうが使いまわせるから??
+    // onClickItem(url: String)を削除した理由　どっちからもお気に入り登録できるようにするため、URLだけでなくお気に入り登録/削除の情報を渡す必要があるから
     //fun onClickItem(Shop: Shop)の役割
     // FavoriteShopをわたす　funの追加　onclickitemShopをわたすfunの追加ApiResponce
 
-    fun onClickItem(FavoriteShop: String)
+    fun onClickItem(favoriteShop: FavoriteShop) //FavoriteAdapter用
 
-    fun onClickItem(Shop: Shop)
+    fun onClickItem(shop: Shop) //ApiAdapter用
 
     // お気に入り追加時の処理
     fun onAddFavorite(shop: Shop)
