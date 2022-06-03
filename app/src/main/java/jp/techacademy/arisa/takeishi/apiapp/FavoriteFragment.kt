@@ -13,10 +13,16 @@ import kotlinx.android.synthetic.main.fragment_api.*
 
 class FavoriteFragment: Fragment() {
 
-    private val favoriteAdapter by lazy { FavoriteAdapter(requireContext()) } //4.4Fragment non-null型について
+    private val favoriteAdapter by lazy { FavoriteAdapter(requireContext()) } //4.4Fragment non-null型について Adapterはデータと画面を紐づける役割を持つため、non-null型　クラス、アクティビティでnullになるのとならないものがある。
 
     // FavoriteFragment -> MainActivity に削除を通知する
     private var fragmentCallback : FragmentCallback? = null
+
+    // 課題:クーポン詳細ページでもお気に入りの追加削除
+    override fun onResume() { //updateDataを読んで画面をリロードする
+        super.onResume()
+        updateData()
+    }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)

@@ -34,6 +34,11 @@ class ApiFragment: Fragment() {
     //trueの時はAPI通信を発生させないBoolean変数
     private var isLoading = false //Falseなので、Loadingしていないの意味
 
+    // 課題:クーポン詳細ページでもお気に入りの追加削除
+    override fun onResume() { //updateViewを読んで画面をリロードする
+        super.onResume()
+        updateView()
+    }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)

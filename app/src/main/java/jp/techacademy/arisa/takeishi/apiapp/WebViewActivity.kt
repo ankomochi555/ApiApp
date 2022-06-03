@@ -21,19 +21,20 @@ class WebViewActivity : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_web_view)
 
         //WebViewで指定されたURLを読み込み表示
         //webView.loadUrl(intent.getStringExtra(KEY_URL).toString())
+
+        binding = ActivityWebViewBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
         favoriteShop = intent.getSerializableExtra(KEY_FAVORITESHOP) as? FavoriteShop ?: return { finish() }()
 
         webView.loadUrl(favoriteShop.url)
 
 
-        binding = ActivityWebViewBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+
 
         //タップした時に行う処理を書く setOnClickListner
         //お気に入りの登録と削除,Alertを先に書いて、そのあとでAdapterの調整をする
@@ -45,7 +46,7 @@ class WebViewActivity : AppCompatActivity(){
                 binding.webFavoriteImageView.setImageResource(R.drawable.ic_star)
                 flg = false
                 FavoriteShop.insert(favoriteShop)
-                (viewPagerAdapter.fragments[MainActivity.VIEW_PAGER_POSITION_FAVORITE] as FavoriteFragment).updateData()
+                //(viewPagerAdapter.fragments[MainActivity.VIEW_PAGER_POSITION_FAVORITE] as FavoriteFragment).updateData() MainActivityのほうの画面更新するもの
             } else {
                 binding.webFavoriteImageView.setImageResource(R.drawable.ic_star_border)
                 flg = true
